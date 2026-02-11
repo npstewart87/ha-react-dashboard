@@ -1,6 +1,6 @@
 import { FallbackPanel } from "@home-assistant-react/panel-fallback/src";
-import { getPanelComponent } from "@home-assistant-react/api/src/dashboard";
-import { logWarning } from "../console/logWarning";
+import { getPanelComponent } from "./get-panel-component";
+import { logWarning } from "@home-assistant-react/helpers/src/console/logWarning";
 
 /**
  * Retrieves a panel component by name, or returns a fallback component if the specified component is not found.

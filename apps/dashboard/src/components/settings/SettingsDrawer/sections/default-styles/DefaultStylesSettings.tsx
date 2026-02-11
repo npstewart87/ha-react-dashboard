@@ -17,7 +17,7 @@ import { ThemeImportExportDropdown } from "@home-assistant-react/ui/src/editor/c
 import { ThemeSelectInput } from "@home-assistant-react/ui/src/editor/components/ThemeSelectInput";
 import { ViewSelectInput } from "@home-assistant-react/ui/src/editor/components/ViewSelectInput";
 import React from "react";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 
 export type DefaultStylesSettingsProps = ThemeStyles[];
 
@@ -244,7 +244,7 @@ export const DefaultStylesSettings: React.FC = () => {
           <TabsTrigger value="sidebar-panels">Sidebar panels</TabsTrigger>
         </TabsList>
         <TabsContent value={"colors"} className={"flex-col w-full h-full"}>
-          <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+          <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
             <Box className={"w-full h-full"}>
               <Box
                 className={"grid grid-cols-3 gap-4 w-full h-full py-10 px-4"}
@@ -264,13 +264,13 @@ export const DefaultStylesSettings: React.FC = () => {
                 ))}
               </Box>
             </Box>
-          </Scrollbars>
+          </Scrollbar>
           <Box>
             <Button onClick={handleSave}>Save</Button>
           </Box>
         </TabsContent>
         <TabsContent value="background" className={"w-full h-full"}>
-          <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+          <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
             <StyleEditor
               key={selectedStyleKey}
               onPropertyChange={updateStyle}
@@ -282,13 +282,13 @@ export const DefaultStylesSettings: React.FC = () => {
                 StyleEditorCategory.BackgroundImage,
               ]}
             />
-          </Scrollbars>
+          </Scrollbar>
           <Box>
             <Button onClick={handleSave}>Save</Button>
           </Box>
         </TabsContent>
         <TabsContent value="panels" className={"w-full h-full"}>
-          <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+          <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
             <StyleEditor
               key={selectedStyleKey}
               onPropertyChange={updateStyle}
@@ -296,13 +296,13 @@ export const DefaultStylesSettings: React.FC = () => {
               styleKey={selectedStyleKey}
               hasSelfScrollContainer={false}
             />
-          </Scrollbars>
+          </Scrollbar>
           <Box>
             <Button onClick={handleSave}>Save</Button>
           </Box>
         </TabsContent>
         <TabsContent value="view-panels" className={"w-full h-full"}>
-          <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+          <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
             <StyleEditor
               key={selectedStyleKey}
               onPropertyChange={updateStyle}
@@ -310,13 +310,13 @@ export const DefaultStylesSettings: React.FC = () => {
               styleKey={selectedStyleKey}
               hasSelfScrollContainer={false}
             />
-          </Scrollbars>
+          </Scrollbar>
           <Box>
             <Button onClick={handleSave}>Save</Button>
           </Box>
         </TabsContent>
         <TabsContent value="sidebar-panels" className={"w-full h-full"}>
-          <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+          <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
             <StyleEditor
               key={selectedStyleKey}
               onPropertyChange={updateStyle}
@@ -324,7 +324,7 @@ export const DefaultStylesSettings: React.FC = () => {
               styleKey={selectedStyleKey}
               hasSelfScrollContainer={false}
             />
-          </Scrollbars>
+          </Scrollbar>
           <Box>
             <Button onClick={handleSave}>Save</Button>
           </Box>

@@ -1,9 +1,9 @@
-import { useGetPanelStyleToCssStyle } from "@home-assistant-react/helpers/src/panels/useGetPanelStyleToCssStyle";
+import { useGetPanelStyleToCssStyle } from "@home-assistant-react/api/src/dashboard/helpers/useGetPanelStyleToCssStyle";
 import { PanelFC } from "@home-assistant-react/types/src";
 import { usePanel } from "@home-assistant-react/api/src";
 import React from "react";
 import { formatDateYYMMDD } from "@home-assistant-react/helpers/src/dates/formatDateYYMMDD";
-import moment from "moment";
+import dayjs from "dayjs";
 import { WasteType } from "@home-assistant-react/types/src/panels/waste-type";
 import { Box, Flex } from "@home-assistant-react/ui/src";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
@@ -28,8 +28,8 @@ export const Waste: PanelFC<WasteOptions> = (props) => {
   const updateWasteType = () => {
     const newDate = formatDateYYMMDD(
       options?.showNextDate !== false
-        ? moment().add(1, "day").toDate()
-        : moment().toDate(),
+        ? dayjs().add(1, "day").toDate()
+        : dayjs().toDate(),
     );
     //const newType = options?.dates?.[newDate];
     const newType = findTypeByDate(

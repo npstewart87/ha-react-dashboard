@@ -4,7 +4,7 @@ import {
   useDashboard,
   useDashboardEditor,
 } from "@home-assistant-react/api/src";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { PanelEditingData } from "@home-assistant-react/types/src/editor/panel-editing-data";
 import { Button, DebouncedInput, Flex } from "@home-assistant-react/ui/src";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
@@ -32,7 +32,7 @@ export const PanelEditorLayers = React.forwardRef<HTMLDivElement>((_, ref) => {
   >(undefined);
   const { startPanelEditing } = dashboardEditor;
 
-  const [scrollAreaRef, setScrollAreaRef] = React.useState<Scrollbars | null>();
+  const [scrollAreaRef, setScrollAreaRef] = React.useState<Scrollbar | null>();
   const uiState = React.useRef<{ preventItemScroll: boolean }>({
     preventItemScroll: false,
   });
@@ -106,7 +106,7 @@ export const PanelEditorLayers = React.forwardRef<HTMLDivElement>((_, ref) => {
         </Button>
       </Flex>
       <Flex className={classes.LayersContainer}>
-        <Scrollbars style={{ height: "100%" }} ref={setScrollAreaRef}>
+        <Scrollbar style={{ height: "100%" }} ref={setScrollAreaRef}>
           <AnimationContainer>
             {groups?.map((layout) => {
               const layers = getPanelLayerItems(dashboard, layout, layout.i);
@@ -139,7 +139,7 @@ export const PanelEditorLayers = React.forwardRef<HTMLDivElement>((_, ref) => {
               );
             })}
           </AnimationContainer>
-        </Scrollbars>
+        </Scrollbar>
       </Flex>
     </Flex>
   );

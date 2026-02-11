@@ -19,11 +19,11 @@
     "@home-assistant-react/typescript-config": "workspace:*",
     "@home-assistant-react/ui": "workspace:*",
     "@types/react": "^18.3.28",
-    "@types/react-custom-scrollbars": "^4.0.10",
     "@types/react-dom": "^18.3.7",
-    "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-custom-scrollbars": "^4.2.1",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "react-scrollbars-custom": "^4.1.1"
   }
 }

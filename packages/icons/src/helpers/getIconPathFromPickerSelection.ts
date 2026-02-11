@@ -1,4 +1,4 @@
-import { IconValue } from "@home-assistant-react/ui/src";
+import { IconValue } from "@home-assistant-react/types/src/icons";
 export const getIconPathFromPickerSelection = (
   selection: IconValue | undefined | null,
 ) => {

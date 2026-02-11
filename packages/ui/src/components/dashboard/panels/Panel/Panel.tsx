@@ -1,4 +1,4 @@
-import { useGetPanelStyleToCssStyle } from "@home-assistant-react/helpers/src/panels/useGetPanelStyleToCssStyle";
+import { useGetPanelStyleToCssStyle } from "@home-assistant-react/api/src/dashboard/helpers/useGetPanelStyleToCssStyle";
 import React, { CSSProperties } from "react";
 import { PanelProps } from "./Panel.types";
 import { Box } from "../../../../primitives/common";

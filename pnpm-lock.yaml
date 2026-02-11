@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
     devDependencies:
       '@home-assistant-react/prettier-config':
         specifier: workspace:*
@@ -47,9 +51,6 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.3.1
-      react-custom-scrollbars:
-        specifier: ^4.2.1
-        version: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
@@ -102,6 +103,9 @@ importers:
       '@home-assistant-react/panel-action':
         specifier: workspace:*
         version: link:../../panels/action
+      '@home-assistant-react/panel-alarm':
+        specifier: workspace:*
+        version: link:../../panels/alarm
       '@home-assistant-react/panel-camera':
         specifier: workspace:*
         version: link:../../panels/camera
@@ -114,12 +118,30 @@ importers:
       '@home-assistant-react/panel-cover':
         specifier: workspace:*
         version: link:../../panels/cover
+      '@home-assistant-react/panel-energy':
+        specifier: workspace:*
+        version: link:../../panels/energy
       '@home-assistant-react/panel-fallback':
         specifier: workspace:*
         version: link:../../panels/fallback
+      '@home-assistant-react/panel-fan':
+        specifier: workspace:*
+        version: link:../../panels/fan
       '@home-assistant-react/panel-light':
         specifier: workspace:*
         version: link:../../panels/light
+      '@home-assistant-react/panel-lock':
+        specifier: workspace:*
+        version: link:../../panels/lock
+      '@home-assistant-react/panel-media-player':
+        specifier: workspace:*
+        version: link:../../panels/media-player
+      '@home-assistant-react/panel-multi-entity':
+        specifier: workspace:*
+        version: link:../../panels/multi-entity
+      '@home-assistant-react/panel-person':
+        specifier: workspace:*
+        version: link:../../panels/person
       '@home-assistant-react/panel-sensor':
         specifier: workspace:*
         version: link:../../panels/sensor
@@ -132,6 +154,9 @@ importers:
       '@home-assistant-react/panel-toggle':
         specifier: workspace:*
         version: link:../../panels/toggle
+      '@home-assistant-react/panel-vacuum':
+        specifier: workspace:*
+        version: link:../../panels/vacuum
       '@home-assistant-react/panel-waste':
         specifier: workspace:*
         version: link:../../panels/waste
@@ -171,9 +196,6 @@ importers:
       '@home-assistant-react/tailwindcss-config':
         specifier: workspace:*
         version: link:../../config/tailwind
-      '@home-assistant-react/themes':
-        specifier: workspace:*
-        version: link:../../packages/themes
       '@home-assistant-react/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -189,9 +211,6 @@ importers:
       '@types/react':
         specifier: ^18.3.28
         version: 18.3.28
-      '@types/react-custom-scrollbars':
-        specifier: ^4.0.10
-        version: 4.0.13
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
@@ -267,6 +286,9 @@ importers:
       cors:
         specifier: ^2.8.6
         version: 2.8.6
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       dotenv:
         specifier: ^16.6.1
         version: 16.6.1
@@ -492,6 +514,9 @@ importers:
       axios:
         specifier: ^1.13.5
         version: 1.13.5
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -569,6 +594,9 @@ importers:
 
   packages/helpers:
     dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -591,21 +619,12 @@ importers:
         specifier: ^9.0.0
         version: 9.0.1
     devDependencies:
-      '@home-assistant-react/api':
-        specifier: workspace:*
-        version: link:../api
       '@home-assistant-react/defines':
         specifier: workspace:*
         version: link:../defines
       '@home-assistant-react/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint
-      '@home-assistant-react/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@home-assistant-react/panel-fallback':
-        specifier: workspace:*
-        version: link:../../panels/fallback
       '@home-assistant-react/types':
         specifier: workspace:*
         version: link:../types
@@ -621,9 +640,6 @@ importers:
       '@types/uuid':
         specifier: ^9.0.2
         version: 9.0.8
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -685,9 +701,6 @@ importers:
       '@home-assistant-react/typescript-config':
         specifier: workspace:*
         version: link:../../config/typescript
-      '@home-assistant-react/ui':
-        specifier: workspace:*
-        version: link:../ui
       '@mdi/js':
         specifier: ^7.2.96
         version: 7.4.47
@@ -763,30 +776,6 @@ importers:
       react-intl:
         specifier: ^6.4.4
         version: 6.6.8(react@18.3.1)(typescript@5.9.3)
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-
-  packages/themes:
-    devDependencies:
-      '@home-assistant-react/eslint-config':
-        specifier: workspace:*
-        version: link:../../config/eslint
-      '@home-assistant-react/types':
-        specifier: workspace:*
-        version: link:../types
-      '@home-assistant-react/typescript-config':
-        specifier: workspace:*
-        version: link:../../config/typescript
-      '@types/react':
-        specifier: ^18.3.28
-        version: 18.3.28
-      '@types/react-dom':
-        specifier: ^18.3.7
-        version: 18.3.7(@types/react@18.3.28)
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -977,9 +966,45 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/alarm:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1022,9 +1047,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1071,9 +1093,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1082,6 +1101,10 @@ importers:
         version: 5.9.3
 
   panels/clock:
+    dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1113,9 +1136,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1124,6 +1144,45 @@ importers:
         version: 5.9.3
 
   panels/cover:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/energy:
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1192,6 +1251,45 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  panels/fan:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   panels/light:
     dependencies:
       '@uiw/react-color':
@@ -1234,9 +1332,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1244,7 +1339,7 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  panels/sensor:
+  panels/lock:
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1276,9 +1371,166 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/media-player:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/multi-entity:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/person:
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/sensor:
+    dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1321,9 +1573,6 @@ importers:
       axios:
         specifier: ^1.13.5
         version: 1.13.5
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1335,6 +1584,10 @@ importers:
         version: 5.9.3
 
   panels/stack:
+    dependencies:
+      react-scrollbars-custom:
+        specifier: ^4.1.1
+        version: 4.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1363,21 +1616,12 @@ importers:
       '@types/react':
         specifier: ^18.3.28
         version: 18.3.28
-      '@types/react-custom-scrollbars':
-        specifier: ^4.0.10
-        version: 4.0.13
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
-      react-custom-scrollbars:
-        specifier: ^4.2.1
-        version: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -1414,9 +1658,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1424,7 +1665,7 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  panels/waste:
+  panels/vacuum:
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1456,9 +1697,49 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.28)
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  panels/waste:
+    dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
+    devDependencies:
+      '@home-assistant-react/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@home-assistant-react/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@home-assistant-react/helpers':
+        specifier: workspace:*
+        version: link:../../packages/helpers
+      '@home-assistant-react/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@home-assistant-react/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@home-assistant-react/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@home-assistant-react/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@home-assistant-react/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.28
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.7
+        version: 18.3.7(@types/react@18.3.28)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1467,6 +1748,10 @@ importers:
         version: 5.9.3
 
   panels/weather:
+    dependencies:
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
     devDependencies:
       '@home-assistant-react/api':
         specifier: workspace:*
@@ -1501,9 +1786,6 @@ importers:
       axios:
         specifier: ^1.13.5
         version: 1.13.5
-      moment:
-        specifier: ^2.29.4
-        version: 2.30.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -3712,9 +3994,6 @@ packages:
     peerDependencies:
       '@types/react': '*'
 
-  '@types/react-custom-scrollbars@4.0.13':
-    resolution: {integrity: sha512-t+15reWgAE1jXlrhaZoxjuH/SQf+EG0rzAzSCzTIkSiP5CDT7KhoExNPwIa6uUxtPkjc3gdW/ry7GetLEwCfGA==}
-
   '@types/react-datepicker@4.19.6':
     resolution: {integrity: sha512-uH5fzxt9eXxnc+hDCy/iRSFqU2+9lR/q2lAmaG4WILMai1o3IOdpcV+VSypzBFJLTEC2jrfeDXcdol0CJVMq4g==}
 
@@ -4081,9 +4360,6 @@ packages:
     resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-
-  add-px-to-style@1.0.0:
-    resolution: {integrity: sha512-YMyxSlXpPjD8uWekCQGuN40lV4bnZagUwqa2m/uFv1z/tNImSk9fnXVMUI5qwME/zzI3MMQRvjZ+69zyfSSyew==}
 
   ajv-keywords@3.5.2:
     resolution: {integrity: sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==}
@@ -4511,6 +4787,9 @@ packages:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
 
+  dayjs@1.11.19:
+    resolution: {integrity: sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==}
+
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -4582,9 +4861,6 @@ packages:
 
   dom-converter@0.2.0:
     resolution: {integrity: sha512-gd3ypIPfOMr9h5jIKq8E3sHOTCjeirnl0WK5ZdS1AW0Odt0b1PaWaHdJ4Qk4klv+YB9aJBS7mESXjFoDQPu6DA==}
-
-  dom-css@2.1.0:
-    resolution: {integrity: sha512-w9kU7FAbaSh3QKijL6n59ofAhkkmMJ31GclJIz/vyQdjogfyxcB6Zf8CZyibOERI5o0Hxz30VmJS7+7r5fEj2Q==}
 
   dom-serializer@1.4.1:
     resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
@@ -5502,9 +5778,6 @@ packages:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
     hasBin: true
 
-  moment@2.30.1:
-    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
-
   morgan@1.10.1:
     resolution: {integrity: sha512-223dMRJtI/l25dJKWpgij2cMtywuG/WiUKXdvwfbhGKBhy1puASqXwFzmWZ7+K73vUPoR7SS2Qz2cI/g9MKw0A==}
     engines: {node: '>= 0.8.0'}
@@ -5711,9 +5984,6 @@ packages:
     resolution: {integrity: sha512-ZI3LnwUv5nOGbQzD9c2iDG6toheuXSZP5esSHBjopsXH4dg19soufvpUGA3uohi5anFtGb2lhAVdHzH6R/Evvg==}
     engines: {node: '>=8'}
 
-  performance-now@2.1.0:
-    resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
-
   phin@2.9.3:
     resolution: {integrity: sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
@@ -5823,9 +6093,6 @@ packages:
     resolution: {integrity: sha512-d+JFcLM17njZaOLkv6SCev7uoLaBtfK86vMUXhW1Z4glPWh4jozno9APvW/XKFJ3CCxVoC7OL38BqRydtu5nGg==}
     engines: {node: '>=12'}
 
-  prefix-style@2.0.1:
-    resolution: {integrity: sha512-gdr1MBNVT0drzTq95CbSNdsrBDoHGlb2aDJP/FoY+1e+jSDPOb1Cv554gH2MGiSr2WTcXi/zu+NaFzfcHQkfBQ==}
-
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -5882,9 +6149,6 @@ packages:
   quick-format-unescaped@4.0.4:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
 
-  raf@3.4.1:
-    resolution: {integrity: sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==}
-
   randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
 
@@ -5900,12 +6164,6 @@ packages:
     resolution: {integrity: sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==}
     peerDependencies:
       react: '*'
-
-  react-custom-scrollbars@4.2.1:
-    resolution: {integrity: sha512-VtJTUvZ7kPh/auZWIbBRceGPkE30XBYe+HktFxuMWBR2eVQQ+Ur6yFJMoaYcNpyGq22uYJ9Wx4UAEcC0K+LNPQ==}
-    peerDependencies:
-      react: ^0.14.0 || ^15.0.0 || ^16.0.0
-      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
 
   react-datepicker@4.25.0:
     resolution: {integrity: sha512-zB7CSi44SJ0sqo8hUQ3BF1saE/knn7u25qEMTO1CQGofY1VAKahO8k9drZtp0cfW1DMfoYLR3uSY1/uMvbEzbg==}
@@ -6510,18 +6768,9 @@ packages:
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
 
-  to-camel-case@1.0.0:
-    resolution: {integrity: sha512-nD8pQi5H34kyu1QDMFjzEIYqk0xa9Alt6ZfrdEMuHCFOfTLhDG5pgTu/aAM9Wt9lXILwlXmWP43b8sav0GNE8Q==}
-
-  to-no-case@1.0.2:
-    resolution: {integrity: sha512-Z3g735FxuZY8rodxV4gH7LxClE4H0hTIyHNIHdk+vpQxjLm0cwnKXq/OFVZ76SOQmto7txVcwSCwkU5kqp+FKg==}
-
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
-
-  to-space-case@1.0.0:
-    resolution: {integrity: sha512-rLdvwXZ39VOn1IxGL3V6ZstoTbwLRckQmn/U8ZDLuWwIXNpuZDhQ3AiRUlhTbOXFVE9C+dR51wM0CBDhk31VcA==}
 
   toidentifier@1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
@@ -8659,10 +8908,6 @@ snapshots:
       '@types/react': 18.3.28
       '@types/reactcss': 1.2.12
 
-  '@types/react-custom-scrollbars@4.0.13':
-    dependencies:
-      '@types/react': 18.3.28
-
   '@types/react-datepicker@4.19.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@popperjs/core': 2.11.8
@@ -9128,8 +9373,6 @@ snapshots:
 
   acorn@8.11.3: {}
 
-  add-px-to-style@1.0.0: {}
-
   ajv-keywords@3.5.2(ajv@6.12.6):
     dependencies:
       ajv: 6.12.6
@@ -9566,6 +9809,8 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.6
 
+  dayjs@1.11.19: {}
+
   debug@2.6.9:
     dependencies:
       ms: 2.0.0
@@ -9616,12 +9861,6 @@ snapshots:
   dom-converter@0.2.0:
     dependencies:
       utila: 0.4.0
-
-  dom-css@2.1.0:
-    dependencies:
-      add-px-to-style: 1.0.0
-      prefix-style: 2.0.1
-      to-camel-case: 1.0.0
 
   dom-serializer@1.4.1:
     dependencies:
@@ -10599,8 +10838,6 @@ snapshots:
     dependencies:
       minimist: 1.2.8
 
-  moment@2.30.1: {}
-
   morgan@1.10.1:
     dependencies:
       basic-auth: 2.0.1
@@ -10793,8 +11030,6 @@ snapshots:
 
   peek-readable@4.1.0: {}
 
-  performance-now@2.1.0: {}
-
   phin@2.9.3: {}
 
   picocolors@1.0.1: {}
@@ -10898,8 +11133,6 @@ snapshots:
 
   postgres@3.4.8: {}
 
-  prefix-style@2.0.1: {}
-
   prelude-ls@1.2.1: {}
 
   prettier@3.2.5: {}
@@ -10946,10 +11179,6 @@ snapshots:
 
   quick-format-unescaped@4.0.4: {}
 
-  raf@3.4.1:
-    dependencies:
-      performance-now: 2.1.0
-
   randombytes@2.1.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -10973,14 +11202,6 @@ snapshots:
       react: 18.3.1
       reactcss: 1.2.3(react@18.3.1)
       tinycolor2: 1.6.0
-
-  react-custom-scrollbars@4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      dom-css: 2.1.0
-      prop-types: 15.8.1
-      raf: 3.4.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   react-datepicker@4.25.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -11764,19 +11985,9 @@ snapshots:
 
   tinycolor2@1.6.0: {}
 
-  to-camel-case@1.0.0:
-    dependencies:
-      to-space-case: 1.0.0
-
-  to-no-case@1.0.2: {}
-
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  to-space-case@1.0.0:
-    dependencies:
-      to-no-case: 1.0.2
 
   toidentifier@1.0.1: {}
 

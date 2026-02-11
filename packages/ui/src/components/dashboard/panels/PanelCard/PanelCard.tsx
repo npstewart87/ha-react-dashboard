@@ -5,7 +5,7 @@ import { Spinner } from "../../../feedback/Spinner";
 import { PanelCardProps } from "./PanelCard.types";
 import { Box, Flex } from "../../../../primitives/common";
 import { cn } from "../../../../helpers";
-import { getPanelComponentOrFallback } from "@home-assistant-react/helpers/src/panels/getPanelComponentOrFallback";
+import { getPanelComponentOrFallback } from "@home-assistant-react/api/src/dashboard/helpers/getPanelComponentOrFallback";
 import { usePanel } from "@home-assistant-react/api/src";
 import { booleanDataAttr } from "@home-assistant-react/helpers/src";
 

@@ -4,7 +4,7 @@ import { distributeItems } from "@home-assistant-react/helpers/src/array/distrib
 import { useGetPanelDomSize } from "@home-assistant-react/hooks/src/useGetPanelDomSize";
 import { Box } from "@home-assistant-react/ui/src";
 import { LightLineChart } from "@home-assistant-react/ui/src/components/charts/LightLineChart";
-import moment from "moment/moment";
+import dayjs from "dayjs";
 import React from "react";
 import { SensorPanel } from "../index";
 import { SensorOptions } from "../types";
@@ -23,12 +23,12 @@ export const SensorChart: React.FC = () => {
 
   const history = useGetHistoryStream(
     [historyEntity],
-    moment()
+    dayjs()
       .subtract(
         options?.chartHistoryInterval ??
           SensorPanel.defaultOptions!.chartHistoryInterval,
         options?.chartHistoryIntervalType ??
-          SensorPanel.defaultOptions!.chartHistoryIntervalType,
+          (SensorPanel.defaultOptions!.chartHistoryIntervalType as dayjs.ManipulateType),
       )
       .toDate(),
     { refresh_interval: updateInterval },

@@ -1,5 +1,5 @@
-import { getDomainFromEntityId } from "../home-assistant";
-import { getDashboardWindowStore } from "@home-assistant-react/api/src/dashboard";
+import { getDomainFromEntityId } from "@home-assistant-react/helpers/src/home-assistant";
+import { getDashboardWindowStore } from "./get-dashboard-window-store";
 
 /**
  * Determines the most suitable panel component for a given entity ID based on its domain.

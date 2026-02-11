@@ -1,10 +1,10 @@
 # CODEBASE.md — HA React Dashboard Architecture
 
-> Last updated: 2026-02-11
+> Last updated: 2026-02-12
 
 ## Overview
 
-A fully customizable Home Assistant dashboard built with React. The project is a **pnpm monorepo** (40 workspace packages) consisting of a Vite-powered React frontend, an Express/Node.js backend, and a Home Assistant addon packaging layer.
+A fully customizable Home Assistant dashboard built with React. The project is a **pnpm monorepo** (47 workspace packages) consisting of a Vite-powered React frontend, an Express/Node.js backend, and a Home Assistant addon packaging layer.
 
 ## Architecture Diagram
 
@@ -29,8 +29,11 @@ A fully customizable Home Assistant dashboard built with React. The project is a
 │                   │            │                       │
 │  Port: 5173 (dev) │            │  Port: 8099           │
 │  Output: dist/    │            │  Output: dist/        │
-│  3627 modules     │            │  Bundled: 2MB single  │
-│  5.3MB chunk      │            │  file via @vercel/ncc │
+│  3627+ modules    │            │  Bundled: 2MB single  │
+│  Code-split:      │            │  file via @vercel/ncc │
+│  vendor 692KB     │            │                       │
+│  app    966KB     │            │                       │
+│  icons  3.5MB     │            │                       │
 └────────┬──────────┘            └────────────┬──────────┘
          │ imports                             │ imports
          ▼                                    ▼
@@ -40,7 +43,7 @@ A fully customizable Home Assistant dashboard built with React. The project is a
 │  ┌───────────┐  ┌──────────┐  ┌────────────┐           │
 │  │ packages/ │  │ packages/│  │ packages/  │           │
 │  │ api       │◄►│ helpers  │  │ types      │           │
-│  │ (axios,   │  │ (moment, │  │ (TS types, │           │
+│  │ (axios,   │  │ (dayjs,  │  │ (TS types, │           │
 │  │  HA WS)   │  │  uuid,   │  │  HA entity │           │
 │  └───────────┘  │  sonner) │  │  types)    │           │
 │       ▲         └──────────┘  └────────────┘           │
@@ -58,15 +61,11 @@ A fully customizable Home Assistant dashboard built with React. The project is a
 │  │  icons)   │  │  forms)  │  │            │           │
 │  └───────────┘  └──────────┘  └────────────┘           │
 │                                                         │
-│  ┌────────────┐                                         │
-│  │ packages/  │  ← DEAD: no src/ directory              │
-│  │ themes     │                                         │
-│  └────────────┘                                         │
 └─────────────────────────────────────────────────────────┘
          ▲                              ▲
          │                              │
 ┌────────┴──────────────┐   ┌───────────┴──────────────┐
-│      PANELS (13)      │   │  PROPERTY CONTROLLERS (9)│
+│      PANELS (21)      │   │  PROPERTY CONTROLLERS (9)│
 │                       │   │                          │
 │  action    (script)   │   │  direction  (dropdown)   │
 │  camera    (camera)   │   │  entity     (HA picker)  │
@@ -99,14 +98,13 @@ ha-react-dashboard/
 │   ├── icons/           Icon wrappers (MDI, react-icons)
 │   ├── locale/          i18n translation string constants
 │   ├── providers/       React context providers (HA connection, dashboard state)
-│   ├── themes/          ⚠️ EMPTY — placeholder with no source code
 │   ├── types/           TypeScript type definitions (panels, HA entities, grid)
 │   └── ui/              Shared UI library (Radix primitives, Lucide, forms, editor)
 ├── panels/              Dashboard panel components (one per entity domain)
 │   ├── action/          Push-button for HA scripts
 │   ├── camera/          Live camera feed
 │   ├── climate/         Thermostat/HVAC with gesture support
-│   ├── clock/           Live clock (moment.js format)
+│   ├── clock/           Live clock (dayjs format)
 │   ├── cover/           Blinds/shades control
 │   ├── fallback/        No-op fallback (renders null)
 │   ├── light/           Light control with color pickers + brightness
@@ -115,7 +113,15 @@ ha-react-dashboard/
 │   ├── stack/           Container for sub-panels (scrollable)
 │   ├── toggle/          Toggle switch for any on/off entity
 │   ├── waste/           Waste/garbage collection display
-│   └── weather/         OpenWeather display with forecast
+│   ├── weather/         OpenWeather display with forecast
+│   ├── media-player/    Media player controls (play/pause/skip)
+│   ├── alarm/           Alarm control panel (arm/disarm)
+│   ├── energy/          Energy sensor display with bar indicator
+│   ├── multi-entity/    Multi-entity list view
+│   ├── person/          Person presence tracking
+│   ├── fan/             Fan control (toggle/speed)
+│   ├── lock/            Lock control (lock/unlock)
+│   └── vacuum/          Vacuum robot controls
 ├── property-controllers/  Panel configuration form controls
 │   ├── direction/       Top/Bottom/Left/Right dropdown
 │   ├── entity/          Home Assistant entity picker
@@ -177,34 +183,28 @@ apps/dashboard/dist/          apps/server/dist/index.js
 
 ## Known Issues & Technical Debt
 
-### Dead Code / Unused Packages
-| Item | Status | Notes |
-|---|---|---|
-| `packages/themes/` | **DEAD** | Has `package.json` + `tsconfig.json` but no `src/` directory. No code. |
-| `react-custom-scrollbars` | **Unmaintained** | Used in dashboard + panel-stack. Last published 7+ years ago. Peer deps require React 0.14–16. Consider `react-scrollbars-custom` (already a dep) or `simplebar-react`. |
-| `moment.js` | **Maintenance mode** | Used across 10+ panels. Consider migrating to `date-fns` or `dayjs`. |
+### Resolved Issues (this session)
+| Item | Resolution |
+|---|---|
+| `packages/themes/` (dead code) | **Deleted** — was empty placeholder with no source |
+| `react-custom-scrollbars` (unmaintained) | **Replaced** with `react-scrollbars-custom` across all 11 files |
+| `moment.js` (maintenance mode) | **Replaced** with `dayjs` across all 7 files |
+| `icons ↔ ui` circular dep | **Fixed** — `IconValue` now imported from `types` instead of `ui` |
+| `api ↔ helpers` circular dep | **Fixed** — moved 4 panel helpers from `helpers` to `api/dashboard/helpers/` |
+| 5.3 MB single chunk | **Fixed** — code-split into vendor (692KB), app (966KB), icons (3.5MB), ha-websocket (12KB) |
+| Vite CJS deprecation | **Fixed** — added `"type": "module"` to dashboard package.json |
+| `base` option missing slash | **Fixed** — Vite base path now starts with `/` |
+| Tailwind config `type: "module"` | **Fixed** — added to `config/tailwind/package.json` |
+| Italian visibility labels | **Fixed** — translated to English |
+| Server package name typo | **Fixed** — `sever` → `server` |
+| `querystring` deprecated | **Fixed** — migrated to native `URLSearchParams` |
+| `@types/sharp` deprecated | **Fixed** — removed (types bundled with sharp) |
 
-### Cyclic Dependencies
-- `packages/api` ↔ `packages/helpers` (circular workspace dep)
-- `packages/icons` ↔ `packages/ui` (circular workspace dep)
-
-These work due to pnpm's symlink resolution but are a code smell and can cause issues with build ordering.
-
-### Build Warnings
-- **5.3 MB single JS chunk** — No code splitting. Should add `manualChunks` in Vite config or dynamic `import()`.
-- **Vite CJS deprecation** — Project uses the deprecated CJS Node API. Should migrate to ESM.
-- **`base` option** — Vite warns "base option should start with a slash".
-- **Tailwind config `type: "module"`** — Missing in `config/tailwind/package.json`, causes reparsing overhead.
-
-### Server Package
-- Package name was `@home-assistant-react/sever` (typo) — **fixed** to `@home-assistant-react/server`.
-- `querystring` module was deprecated — **migrated** to native `URLSearchParams`.
-- `@types/sharp` was deprecated — **removed** (types now bundled with sharp).
+### Remaining Technical Debt
 
 ### Incomplete Features
-- `packages/themes/` — Intended for theming support but never implemented.
 - Weather panel uses hardcoded OpenWeather API — no configuration UI for API key visible.
-- Visibility controller labels are in Italian ("Solo card", "Solo in modal") — incomplete i18n.
+- Dart Sass legacy JS API deprecation warning — requires Vite plugin update.
 
 ### Major Upgrades Deferred
 These were **not** updated due to breaking changes requiring significant refactoring:

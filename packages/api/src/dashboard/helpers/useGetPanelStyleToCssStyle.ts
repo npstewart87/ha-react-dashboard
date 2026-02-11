@@ -1,10 +1,10 @@
-import { useHass } from "@home-assistant-react/api/src";
+import { useHass } from "../..";
 import { useGetCustomImageUrl } from "@home-assistant-react/hooks/src/useGetCustomImageUrl";
 import { PanelFcStyleProperties } from "@home-assistant-react/types/src";
 import {
   panelStyleToCssStyle,
   PanelStyleToCssStyleOptions,
-} from "./panelStyleToCssStyle";
+} from "@home-assistant-react/helpers/src/panels/panelStyleToCssStyle";
 
 /**
  * Hook to convert panel style properties to a CSS style object with support for custom image URLs.

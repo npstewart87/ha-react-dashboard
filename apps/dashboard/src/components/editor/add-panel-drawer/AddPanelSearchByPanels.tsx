@@ -4,7 +4,7 @@ import {
   PanelComponentPreview,
   PanelComponentPreviewProps,
 } from "@home-assistant-react/ui/src/editor";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import {
   getObjectKeys,
   setObjectDataTransfer,
@@ -64,7 +64,7 @@ export const AddPanelSearchByPanels: React.FC = () => {
           will be opened automatically.
         </Flex>
       )}
-      <Scrollbars style={{ height: "100%" }}>
+      <Scrollbar style={{ height: "100%" }}>
         <Grid className={"gap-2 p-6 grid-cols-2"}>
           {availablePanels.map((panelKey) => (
             <PanelComponentPreview
@@ -81,7 +81,7 @@ export const AddPanelSearchByPanels: React.FC = () => {
             />
           ))}
         </Grid>
-      </Scrollbars>
+      </Scrollbar>
     </>
   );
 };

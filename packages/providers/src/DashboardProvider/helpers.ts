@@ -1,8 +1,8 @@
 import { getPanelComponent } from "@home-assistant-react/api/src/dashboard";
+import { getStandardPanelSize } from "@home-assistant-react/api/src/dashboard/helpers/getStandardPanelSize";
 import { DEFAULT_GRID_COLS } from "@home-assistant-react/defines/src";
 import {
   findAvailableSpotOnGrid,
-  getStandardPanelSize,
   getUniqueId,
 } from "@home-assistant-react/helpers/src";
 import {

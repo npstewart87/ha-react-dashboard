@@ -1,6 +1,6 @@
 import { useDashboard } from "@home-assistant-react/api/src";
 import { rgbaToHslString } from "@home-assistant-react/helpers/src/colors/rgbaToHslString";
-import { useGetPanelStyleToCssStyle } from "@home-assistant-react/helpers/src/panels/useGetPanelStyleToCssStyle";
+import { useGetPanelStyleToCssStyle } from "@home-assistant-react/api/src/dashboard/helpers/useGetPanelStyleToCssStyle";
 import { useLayout } from "@home-assistant-react/ui/src/components/layout/LayoutProvider";
 import React from "react";
 import { ThemeProviderProps } from "./ThemeProvider.types";

@@ -6,7 +6,7 @@ import { capitalize } from "@home-assistant-react/helpers/src";
 import { FullForecast } from "./providers/openweather/types/response";
 import { WeatherData, WeatherOptions } from "./types";
 import * as OpenWeather from "./providers/openweather";
-import moment from "moment";
+import dayjs from "dayjs";
 import axios from "axios";
 import { EditorPropertyType, PanelFC } from "@home-assistant-react/types/src";
 import { getMdiIcon } from "@home-assistant-react/icons/src";

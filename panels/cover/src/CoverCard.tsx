@@ -1,4 +1,4 @@
-import { useGetPanelStyleToCssStyle } from "@home-assistant-react/helpers/src/panels/useGetPanelStyleToCssStyle";
+import { useGetPanelStyleToCssStyle } from "@home-assistant-react/api/src/dashboard/helpers/useGetPanelStyleToCssStyle";
 import React from "react";
 import {
   CoverEntityFeature,

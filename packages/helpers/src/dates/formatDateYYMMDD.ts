@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 /**
  * Formats a given date object or date string into the "YYYY-MM-DD" format.
@@ -19,5 +19,5 @@ import moment from "moment";
  * console.log(formattedDateString); // Outputs: '2020-01-01'
  */
 export function formatDateYYMMDD(date: Date | string) {
-  return moment(date).format("YYYY-MM-DD");
+  return dayjs(date).format("YYYY-MM-DD");
 }

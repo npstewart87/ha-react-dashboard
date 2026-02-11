@@ -21,7 +21,7 @@ import { ConfirmModal } from "@home-assistant-react/ui/src/components/modals/Con
 import { Modal } from "@home-assistant-react/ui/src/components/modals/Modal/Modal";
 import { Icon } from "@home-assistant-react/ui/src/primitives/Icon";
 import React from "react";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { NewDashboardForm } from "../../../../onboarding/NewDashboardForm";
 
 export const DashboardsListSettings: React.FC = () => {
@@ -49,7 +49,7 @@ export const DashboardsListSettings: React.FC = () => {
   );
 
   return (
-    <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+    <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
       <Box className={"px-10 pb-10"}>
         <Flex className={"justify-end py-2"}>
           <Button
@@ -200,6 +200,6 @@ export const DashboardsListSettings: React.FC = () => {
         isOpen={confirmDeleteDisclosure.isOpen}
         onOpenChange={confirmDeleteDisclosure.setOpen}
       />
-    </Scrollbars>
+    </Scrollbar>
   );
 };

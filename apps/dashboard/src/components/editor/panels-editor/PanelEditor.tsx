@@ -7,7 +7,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@home-assistant-react/ui/src";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { PanelEditorFooter } from "./PanelEditorFooter";
 import { PanelStyleEditor } from "./PanelStyleEditor";
 import { PanelEditorPanelOptions } from "./PanelEditorPanelOptions";
@@ -35,9 +35,9 @@ export const PanelEditor = React.forwardRef<HTMLDivElement>((_props, ref) => {
           <TabsTrigger value="styles">Styles</TabsTrigger>
         </TabsList>
         <TabsContent value="panel" className={classes.TabContent}>
-          <Scrollbars style={{ height: "100%" }}>
+          <Scrollbar style={{ height: "100%" }}>
             <PanelEditorPanelOptions />
-          </Scrollbars>
+          </Scrollbar>
         </TabsContent>
         {!!group && (
           <TabsContent value="group" className={classes.TabContent}>

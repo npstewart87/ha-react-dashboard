@@ -21,7 +21,6 @@
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "axios": "^1.13.5",
-    "moment": "^2.29.4",
     "react": "^18.2.0",
     "swiper": "^10.0.4",
     "typescript": "^5.9.3"

@@ -15,7 +15,7 @@ import { StyleShadow } from "../style-categories/StyleShadow";
 import { StyleText } from "../style-categories/StyleText";
 import { StyleEditorProps } from "./StyleEditor.types";
 import { Box, Flex } from "../../../primitives/common";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { StyleEditorProvider } from "@home-assistant-react/providers/src";
 import { EditorCategoryWrapper } from "../../components";
 
@@ -141,7 +141,7 @@ export const StyleEditor = React.forwardRef<HTMLDivElement, StyleEditorProps>(
         <Flex ref={ref} className={"w-full h-full flex-col gap-6"}>
           <Flex className={"w-full h-full"}>
             {hasSelfScrollContainer ? (
-              <Scrollbars style={{ height: "100%" }}>{content}</Scrollbars>
+              <Scrollbar style={{ height: "100%" }}>{content}</Scrollbar>
             ) : (
               content
             )}

@@ -15,7 +15,6 @@
     "@home-assistant-react/helpers": "workspace:*",
     "@home-assistant-react/types": "workspace:*",
     "@home-assistant-react/typescript-config": "workspace:*",
-    "@home-assistant-react/ui": "workspace:*",
     "@mdi/js": "^7.2.96",
     "@mdi/react": "^1.6.1",
     "@types/react": "^18.3.28",

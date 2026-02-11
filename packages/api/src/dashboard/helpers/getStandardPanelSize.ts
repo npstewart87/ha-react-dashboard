@@ -1,4 +1,4 @@
-import { getPanelComponent } from "@home-assistant-react/api/src/dashboard";
+import { getPanelComponent } from "./get-panel-component";
 import {
   DEFAULT_GRID_PANEL_H,
   DEFAULT_GRID_PANEL_W,

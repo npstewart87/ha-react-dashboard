@@ -1,27 +1,24 @@
-import { ScrollThumbVertical } from "@home-assistant-react/ui/src/components/overlay/scroll-area/ScrollThumbVertical";
+import { Scrollbar } from "react-scrollbars-custom";
 import React from "react";
-import { Scrollbars } from "react-custom-scrollbars";
 
 const classes = {
   ScrollArea: "w-full relative flex-grow",
-  ThumbVertical: "thumb-vertical cursor-pointer z-sticky",
 };
 
 export const DashboardGridScrollArea: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   return (
-    <Scrollbars
+    <Scrollbar
       className={classes.ScrollArea}
-      renderThumbVertical={ScrollThumbVertical}
-      onScroll={(e) => {
+      style={{ width: "100%", height: "100%" }}
+      onScroll={(scrollValues) => {
         const target = document.getElementById("dashboard-sections-nav");
         if (!target) return;
-        target.style.top = e.currentTarget.scrollTop + "px";
+        target.style.top = (scrollValues?.currentTarget as HTMLElement)?.scrollTop + "px";
       }}
-      autoHide
     >
       {children}
-    </Scrollbars>
+    </Scrollbar>
   );
 };

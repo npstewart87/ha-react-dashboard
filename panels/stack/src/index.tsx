@@ -2,11 +2,11 @@ import React from "react";
 import { PanelFC } from "@home-assistant-react/types/src";
 import { StackOptions } from "./types";
 import { Box, cn } from "@home-assistant-react/ui/src";
-import Scrollbars from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { getPanelFromDashboardState } from "@home-assistant-react/helpers/src/panels/getPanelFromDashboardState";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
 import { useDashboard } from "@home-assistant-react/api/src";
-import { getPanelComponentOrFallback } from "@home-assistant-react/helpers/src/panels/getPanelComponentOrFallback";
+import { getPanelComponentOrFallback } from "@home-assistant-react/api/src/dashboard/helpers/getPanelComponentOrFallback";
 
 export const Stack: PanelFC<StackOptions> = (props) => {
   const dashboard = useDashboard();
@@ -46,7 +46,7 @@ export const Stack: PanelFC<StackOptions> = (props) => {
 
   if (props.panel?.options?.isInStack) return items;
 
-  return <Scrollbars style={{ height: "100%" }}>{items}</Scrollbars>;
+  return <Scrollbar style={{ height: "100%" }}>{items}</Scrollbar>;
 };
 
 Stack.getIcon = (_, options) => getMdiIcon("menu", options);

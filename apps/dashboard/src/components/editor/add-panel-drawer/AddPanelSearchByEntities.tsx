@@ -18,7 +18,7 @@ import {
 } from "@home-assistant-react/types/src";
 import { setObjectDataTransfer } from "@home-assistant-react/helpers/src/ui/setObjectDataTransfer";
 import { EntityPickerDragImage } from "@home-assistant-react/ui/src/components/controls/EntityPicker/EntityPickerDragImage";
-import { getSuitablePanelComponentForEntityId } from "@home-assistant-react/helpers/src/panels/getSuitablePanelComponentForEntityId";
+import { getSuitablePanelComponentForEntityId } from "@home-assistant-react/api/src/dashboard/helpers/getSuitablePanelComponentForEntityId";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
 
 const classes = {

@@ -10,19 +10,19 @@ import { PropertyControllerWrapper } from "@home-assistant-react/ui/src/editor";
 const options = [
   {
     value: VisibilityStrategy.None,
-    label: "No",
+    label: "None",
   },
   {
     value: VisibilityStrategy.Both,
-    label: "Card e Modal",
+    label: "Card and Modal",
   },
   {
     value: VisibilityStrategy.CardOnly,
-    label: "Solo card",
+    label: "Card only",
   },
   {
     value: VisibilityStrategy.ModalOnly,
-    label: "Solo in modal",
+    label: "Modal only",
   },
 ];
 

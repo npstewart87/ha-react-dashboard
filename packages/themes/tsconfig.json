@@ -1,4 +1,0 @@
-{
-  "extends": "@home-assistant-react/typescript-config/library.json",
-  "include": ["src"]
-}

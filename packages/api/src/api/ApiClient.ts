@@ -12,7 +12,7 @@ import {
 import { GetRandomPhotosOutput } from "@home-assistant-react/types/src/api/schemas/cloud-integrations";
 import { PluginInfo } from "@home-assistant-react/types/src/providers/plugins-state";
 import { CustomImages } from "@home-assistant-react/types/src/ui/custom-images";
-import moment from "moment/moment";
+import dayjs from "dayjs";
 import axios, { AxiosInstance } from "axios";
 import {
   AlbumValue,
@@ -57,7 +57,7 @@ export class ApiClient {
       return this.authData;
     }
 
-    if (moment(this.authData.expires || 0).diff(moment()) <= 0) {
+    if (dayjs(this.authData.expires || 0).diff(dayjs()) <= 0) {
       return await this.refreshAuthToken(
         this.authData.refresh_token || "",
         this.authData.clientId || "",
@@ -91,7 +91,7 @@ export class ApiClient {
       ...this.authData,
       access_token: newToken.data.access_token,
       expires_in: newToken.data.expires_in,
-      expires: moment().add(newToken.data.expires_in, "seconds").unix(),
+      expires: dayjs().add(newToken.data.expires_in, "seconds").unix(),
       token_type: newToken.data.token_type,
     };
 
@@ -133,7 +133,7 @@ export class ApiClient {
       return "http://localhost:8099/v1";
     }
 
-    return window.__react_dashboard_api_url__;
+    return (window as unknown as { __react_dashboard_api_url__: string }).__react_dashboard_api_url__;
   }
 
   public async startIntegrationLogin(integrationName: string, data: Dict) {

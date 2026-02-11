@@ -1,7 +1,7 @@
 import React from "react";
 import { ClockOptions } from "./types";
 import { Flex } from "@home-assistant-react/ui/src";
-import moment from "moment";
+import dayjs from "dayjs";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
 import { PanelFC } from "@home-assistant-react/types/src";
 
@@ -19,12 +19,12 @@ export const Clock: PanelFC<ClockOptions> = (props) => {
   const options = props.panel.options;
   const timeFormat = options?.timeFormat || "hh:mm A";
   const [currentTime, setCurrentTime] = React.useState(
-    moment().format(timeFormat),
+    dayjs().format(timeFormat),
   );
 
   React.useEffect(() => {
     const interval = setInterval(
-      () => setCurrentTime(moment().format(timeFormat)),
+      () => setCurrentTime(dayjs().format(timeFormat)),
       1000,
     );
 
@@ -35,6 +35,6 @@ export const Clock: PanelFC<ClockOptions> = (props) => {
 };
 
 Clock.previewPanel = () => (
-  <CLockComponent currentTime={moment().format("hh:mm A")} />
+  <CLockComponent currentTime={dayjs().format("hh:mm A")} />
 );
 Clock.getIcon = (_, options) => getMdiIcon("clock", options);

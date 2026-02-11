@@ -1,4 +1,4 @@
-import { IconValue } from "@home-assistant-react/ui/src";
+import { IconValue } from "@home-assistant-react/types/src/icons";
 import {
   mdiArrowUpBox,
   mdiArrowDownBox,

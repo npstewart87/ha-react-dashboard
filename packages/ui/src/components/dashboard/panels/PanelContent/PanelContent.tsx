@@ -2,7 +2,7 @@ import React from "react";
 import { PanelContentProps } from "./PanelContent.types";
 import { PanelCard } from "../PanelCard";
 import { Box } from "../../../../primitives/common";
-import { getPanelComponentOrFallback } from "@home-assistant-react/helpers/src/panels/getPanelComponentOrFallback";
+import { getPanelComponentOrFallback } from "@home-assistant-react/api/src/dashboard/helpers/getPanelComponentOrFallback";
 import { PanelEditButton } from "../PanelEditButton";
 import { useDashboardEditor } from "@home-assistant-react/api/src/hooks/providers/useDashboardEditor";
 import { PanelContextMenu } from "../../../../editor/components/PanelContextMenu";

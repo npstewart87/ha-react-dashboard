@@ -5,3 +5,7 @@ export * from "./get-property-controller";
 export * from "./register-panel-component";
 export * from "./register-property-controller-component";
 export * from "./load-panel-component";
+export * from "./getPanelComponentOrFallback";
+export * from "./getStandardPanelSize";
+export * from "./getSuitablePanelComponentForEntityId";
+export * from "./useGetPanelStyleToCssStyle";

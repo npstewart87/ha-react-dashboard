@@ -1,6 +1,6 @@
 import React from "react";
 import { VirtualizedListProps } from "./VirtualizedList.types";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 
 export const VirtualizedList = <T,>(
   {
@@ -17,13 +17,14 @@ export const VirtualizedList = <T,>(
   const [containerRef, setContainerRef] = React.useState<HTMLDivElement | null>(
     null,
   );
-  const scrollRef = React.useRef<Scrollbars | null>(null);
+  const scrollRef = React.useRef<Scrollbar | null>(null);
 
   const totalHeight = items.length * itemHeight;
 
   const handleScroll = () => {
-    if (scrollRef.current) {
-      const scrollTop = scrollRef.current?.getScrollTop();
+    const el = scrollRef.current?.scrollerElement;
+    if (el) {
+      const scrollTop = el.scrollTop;
       const start = Math.floor((scrollTop - (padding || 0)) / itemHeight);
       setVisibleStartIndex(start);
     }
@@ -39,7 +40,10 @@ export const VirtualizedList = <T,>(
   React.useEffect(() => {
     if (scrollToIndex === undefined) return;
 
-    scrollRef.current?.scrollTop(Math.max(0, scrollToIndex - 2) * itemHeight);
+    const el = scrollRef.current?.scrollerElement;
+    if (el) {
+      el.scrollTop = Math.max(0, scrollToIndex - 2) * itemHeight;
+    }
   }, [scrollToIndex, totalHeight, scrollRef.current]);
 
   return (
@@ -60,7 +64,7 @@ export const VirtualizedList = <T,>(
       }}
       style={{ overflowY: "auto", height: "100%", width: "100%" }}
     >
-      <Scrollbars
+      <Scrollbar
         ref={scrollRef}
         style={{ height: "100%" }}
         onScroll={handleScroll}
@@ -88,7 +92,7 @@ export const VirtualizedList = <T,>(
             </div>
           ))}
         </div>
-      </Scrollbars>
+      </Scrollbar>
     </div>
   );
 };

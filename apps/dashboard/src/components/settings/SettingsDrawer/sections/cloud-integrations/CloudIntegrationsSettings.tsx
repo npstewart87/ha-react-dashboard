@@ -15,7 +15,7 @@ import { CloudApiAddIntegrationButton } from "@home-assistant-react/ui/src/compo
 import { DataTable } from "@home-assistant-react/ui/src/components/data-display/DataTable";
 import { Icon } from "@home-assistant-react/ui/src/primitives/Icon";
 import React from "react";
-import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 
 export const CloudIntegrationsSettings: React.FC = () => {
   const api = useApi();
@@ -34,7 +34,7 @@ export const CloudIntegrationsSettings: React.FC = () => {
   );
 
   return (
-    <Scrollbars style={{ height: "100%", flexGrow: 1 }}>
+    <Scrollbar style={{ height: "100%", flexGrow: 1 }}>
       <Box className={"px-10 pb-10"}>
         <Flex className={"justify-end py-2"}>
           <CloudApiAddIntegrationButton
@@ -101,6 +101,6 @@ export const CloudIntegrationsSettings: React.FC = () => {
           data={integrations?.integrations || []}
         />
       </Box>
-    </Scrollbars>
+    </Scrollbar>
   );
 };

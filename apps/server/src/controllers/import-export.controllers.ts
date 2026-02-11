@@ -1,5 +1,5 @@
 import fileUpload from "express-fileupload";
-import moment from "moment";
+import dayjs from "dayjs";
 import { FULL_BACKUP_DIRECTORIES } from "../const";
 import {
   errBackupRestoreFailed,
@@ -20,7 +20,7 @@ const exportAll = defineController(async ({ response }) => {
     response?.setHeader("Content-Type", "application/zip");
     response?.setHeader(
       "Content-Disposition",
-      `attachment; filename="backup-${moment().format("YYYY-MM-DD-HH-mm-ss")}.zip"`,
+      `attachment; filename="backup-${dayjs().format("YYYY-MM-DD-HH-mm-ss")}.zip"`,
     );
     const buffer = await zip.blob.arrayBuffer();
     response?.send(Buffer.from(buffer));

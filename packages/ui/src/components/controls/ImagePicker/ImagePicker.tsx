@@ -1,7 +1,7 @@
 import { useHass } from "@home-assistant-react/api/src";
 import { CustomImage } from "@home-assistant-react/types/src/ui/custom-images";
 import React from "react";
-import { Scrollbars, positionValues } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { Tabs, TabsList, TabsTrigger } from "../../disclosure";
 import { ImagePickerImageButton } from "./ImagePickerImageButton";
 import { ImageDirectories, ImagePickerProps } from "./ImagePicker.types";
@@ -32,7 +32,8 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
   };
 
   const handleSearchValueChange = () => {
-    scrollBarsRef.current?.scrollTop(0);
+    const el = scrollBarsRef.current?.scrollerElement;
+    if (el) el.scrollTop = 0;
   };
 
   const imagePickerDictionaries: ImageDirectories = {
@@ -52,9 +53,15 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
         {(state) => {
           if (!state) return null;
 
-          const handleScrollChange = (values: positionValues) => {
-            if (values.top >= 0.9 && state.page + 1 <= state.totalImagesPages) {
-              state.setPage((page) => page + 1);
+          const handleScrollChange = () => {
+            const el = scrollBarsRef.current?.scrollerElement;
+            if (el) {
+              const top = el.scrollHeight > el.clientHeight
+                ? el.scrollTop / (el.scrollHeight - el.clientHeight)
+                : 0;
+              if (top >= 0.9 && state.page + 1 <= state.totalImagesPages) {
+                state.setPage((page) => page + 1);
+              }
             }
           };
 
@@ -78,10 +85,10 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
                 hideEmptyMessages
                 isClearable
               />
-              <Scrollbars
+              <Scrollbar
                 ref={scrollBarsRef}
                 className={classes.ImagePickerWrapper}
-                onUpdate={handleScrollChange}
+                onScroll={handleScrollChange}
                 style={{ height: undefined }}
               >
                 <Grid className={classes.ImagePickerGrid}>
@@ -106,7 +113,7 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
                       })
                     : undefined}
                 </Grid>
-              </Scrollbars>
+              </Scrollbar>
             </>
           );
         }}

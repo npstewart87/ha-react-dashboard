@@ -3,7 +3,7 @@ import { getObjectKeys } from "@home-assistant-react/helpers/src";
 import { useIconDictionaries } from "@home-assistant-react/hooks/src/useIconDictionaries";
 import { IconDictionaries } from "@home-assistant-react/types/src/icons";
 import React from "react";
-import { Scrollbars, positionValues } from "react-custom-scrollbars";
+import { Scrollbar } from "react-scrollbars-custom";
 import { Tabs, TabsList, TabsTrigger } from "../../disclosure";
 import { Spinner } from "../../feedback/Spinner";
 import { IconPickerProps } from "./IconPicker.types";
@@ -47,13 +47,14 @@ export const IconPickerInner: React.FC<
   IconPickerProps & { iconDictionaries: IconDictionaries }
 > = ({ onSelect, initialIconSet, iconDictionaries }) => {
   const hass = useHass();
-  const scrollBarsRef = React.useRef<Scrollbars | null>(null);
+  const scrollBarsRef = React.useRef<Scrollbar | null>(null);
   const handleIconSelect = (iconName: string, iconSet: string) => {
     onSelect?.({ icon: iconName, set: iconSet });
   };
 
   const handleSearchValueChange = () => {
-    scrollBarsRef.current?.scrollTop(0);
+    const el = scrollBarsRef.current?.scrollerElement;
+    if (el) el.scrollTop = 0;
   };
 
   const iconPickerDictionaries = React.useMemo(() => {
@@ -86,9 +87,15 @@ export const IconPickerInner: React.FC<
         {(state) => {
           if (!state) return null;
 
-          const handleScrollChange = (values: positionValues) => {
-            if (values.top >= 0.9 && state.page + 1 <= state.totalIconsPages) {
-              state.setPage((page) => page + 1);
+          const handleScrollChange = () => {
+            const el = scrollBarsRef.current?.scrollerElement;
+            if (el) {
+              const top = el.scrollHeight > el.clientHeight
+                ? el.scrollTop / (el.scrollHeight - el.clientHeight)
+                : 0;
+              if (top >= 0.9 && state.page + 1 <= state.totalIconsPages) {
+                state.setPage((page) => page + 1);
+              }
             }
           };
 
@@ -114,10 +121,10 @@ export const IconPickerInner: React.FC<
                 hideEmptyMessages
                 isClearable
               />
-              <Scrollbars
+              <Scrollbar
                 ref={scrollBarsRef}
                 className={classes.IconPickerWrapper}
-                onUpdate={handleScrollChange}
+                onScroll={handleScrollChange}
                 style={{ height: undefined }}
               >
                 <Grid className={classes.IconPickerGrid}>
@@ -144,7 +151,7 @@ export const IconPickerInner: React.FC<
                       })
                     : undefined}
                 </Grid>
-              </Scrollbars>
+              </Scrollbar>
             </>
           );
         }}
