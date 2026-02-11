@@ -10,12 +10,12 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR"
-ADDON_DIR="$ROOT_DIR/addon"
+ADDON_DIR="$ROOT_DIR/react-dashboard"
 
 echo "==> Step 1: Running main build (dashboard + server)..."
 bash "$ROOT_DIR/scripts/build.sh"
 
-echo "==> Step 2: Copying dist/ into addon/dist/..."
+echo "==> Step 2: Copying dist/ into react-dashboard/dist/..."
 rm -rf "$ADDON_DIR/dist"
 cp -r "$ROOT_DIR/dist" "$ADDON_DIR/dist"
 

@@ -12,6 +12,7 @@ out/
 build
 dist
 addon/dist
+react-dashboard/dist
 
 # misc
 .DS_Store
