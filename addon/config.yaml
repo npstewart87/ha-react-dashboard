@@ -4,7 +4,6 @@ slug: react_dashboard
 name: React Dashboard
 description: Fully customizable Dashboard for your Home Assistant made in React
 url: "https://github.com/npstewart87/ha-react-dashboard"
-image: "ghcr.io/npstewart87/ha-react-dashboard-{arch}"
 arch:
   - armhf
   - armv7
