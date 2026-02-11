@@ -19,7 +19,10 @@ export const LayoutContext = React.createContext<
 export interface LayoutProviderProps extends PropsWithChildren {}
 
 export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
-  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const [theme, setTheme] = React.useState<"light" | "dark">(() => {
+    const saved = typeof window !== "undefined" ? window.localStorage.getItem("ha-dashboard-theme") : null;
+    return (saved === "light" || saved === "dark") ? saved : "dark";
+  });
   const settingsDisclosure = useDisclosure<SettingsDisclosureData>();
 
   React.useEffect(() => {
@@ -27,6 +30,7 @@ export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
     root.classList.remove(...availableThemes);
     root.classList.add(theme);
     root.style.colorScheme = theme;
+    window.localStorage.setItem("ha-dashboard-theme", theme);
   }, [theme]);
 
   return (

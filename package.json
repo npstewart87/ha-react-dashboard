@@ -1,7 +1,7 @@
 {
   "name": "homeassistant-react-dashboard",
   "description": "A fully customizable dashboard for Home Assistant built with React.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build:dashboard": "cd apps/dashboard && pnpm build",

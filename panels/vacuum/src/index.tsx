@@ -8,6 +8,7 @@ import {
   PanelFC,
 } from "@home-assistant-react/types/src";
 import { mdiRobotVacuum, mdiPlay, mdiStop, mdiHome } from "@mdi/js";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface VacuumOptions {
   entity_id?: string;
@@ -27,6 +28,8 @@ export const VacuumPanel: PanelFC<VacuumOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
   const hass = useHass();
+
+  if (!entity) return <PanelEmptyState icon="robotVacuum" message="Select a vacuum entity" />;
 
   const friendlyName = entity?.attributes?.friendly_name || "";
   const currentState = entity?.state || "unavailable";

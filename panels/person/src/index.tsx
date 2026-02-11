@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex } from "@home-assistant-react/ui/src";
 import { Icon } from "@home-assistant-react/icons/src";
 import { useHassGetEntity } from "@home-assistant-react/api/src/hooks";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 import {
   EditorPropertyType,
   PanelFC,
@@ -22,6 +23,8 @@ const classes = {
 export const PersonPanel: PanelFC<PersonOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
+
+  if (!entity) return <PanelEmptyState icon="accountMultiple" message="Select a person entity" />;
 
   const friendlyName = entity?.attributes?.friendly_name || "";
   const currentState = entity?.state || "unavailable";

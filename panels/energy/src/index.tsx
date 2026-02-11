@@ -7,6 +7,7 @@ import {
   PanelFC,
 } from "@home-assistant-react/types/src";
 import { mdiFlash } from "@mdi/js";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface EnergyOptions {
   entity_id?: string;
@@ -23,6 +24,7 @@ const classes = {
 export const EnergyPanel: PanelFC<EnergyOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
+  if (!entity) return <PanelEmptyState icon="flash" message="Select an energy entity" />;
 
   const friendlyName = entity?.attributes?.friendly_name || "";
   const stateValue = entity?.state || "0";

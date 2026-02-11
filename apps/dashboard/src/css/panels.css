@@ -3,7 +3,8 @@
 }
 
 .panel[data-is-button]:active{
-    transform: scale(0.90);
+    transform: scale(0.95);
+    transition: transform 0.1s ease-out;
 }
 
 .default-panel-normal{
@@ -11,15 +12,17 @@
     color: #8183B5;
     cursor: pointer;
     border-radius: 14px;
-    transition: all 0.4s;
+    transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
 .default-panel-normal > .hover-bg {
     pointer-events: none;
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,.1);
+    border-radius: inherit;
+    background: rgba(0,0,0,.06);
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .default-panel-normal:hover{
@@ -27,7 +30,7 @@
 }
 
 .default-panel-normal:hover > .hover-bg {
-    opacity: 0.3;
+    opacity: 1;
 }
 
 .default-panel-active{
@@ -35,23 +38,32 @@
     color: #FAFEFF;
     cursor: pointer;
     border-radius: 14px;
-    transition: all 0.4s;
+    transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    box-shadow: 0 4px 20px rgba(114,121,224,0.3);
 }
 
+/* Dark mode panel styles */
 .dark .default-panel-normal{
-    background-image: linear-gradient(158deg, rgba(34,34,34,1) 0%, rgba(45,45,45,1) 100%);
-    color: #CDD1E1;
+    background-image: linear-gradient(158deg, rgba(28,32,40,1) 0%, rgba(35,40,50,1) 100%);
+    color: #a0a8c0;
     cursor: pointer;
     border-radius: 14px;
-    transition: all 0.4s;
+    transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.dark .default-panel-normal > .hover-bg {
+    background: rgba(255,255,255,.04);
 }
 
 .dark .default-panel-active{
-    background-image: linear-gradient(158deg, rgba(45,55,65,1) 0%, rgba(85,95,105,1) 100%);
+    background-image: linear-gradient(158deg, rgba(88,80,186,1) 0%, rgba(108,100,220,1) 100%);
     color: #FFFFFF;
     cursor: pointer;
     border-radius: 14px;
-    transition: all 0.4s;
+    transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    box-shadow: 0 4px 24px rgba(108,100,220,0.25);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .panels-group .swiper{

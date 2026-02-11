@@ -1,12 +1,15 @@
 import React from "react";
 import { FloatingSettingsButtonProps } from "./FloatingSettingsButton.types";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
-import { Box } from "../../../../primitives/common";
+import { Box, Flex } from "../../../../primitives/common";
 import { useDashboardEditor } from "@home-assistant-react/api/src";
+import { cn } from "../../../../helpers";
 
 const classes = {
   Button:
-    "rounded-full bg-primary-background p-2 transition-all absolute bottom-[-10px] right-[-10px] hover:right-0 hover:bottom-0 hover:cursor-pointer",
+    "rounded-full bg-primary/90 text-primary-foreground shadow-lg p-3 transition-all duration-300 fixed bottom-6 right-6 hover:bg-primary hover:scale-110 hover:shadow-xl cursor-pointer z-sticky",
+  ArrangingButton:
+    "bg-destructive hover:bg-destructive/90",
 };
 
 export const FloatingSettingsButton = React.forwardRef<
@@ -15,9 +18,17 @@ export const FloatingSettingsButton = React.forwardRef<
 >((_props, ref) => {
   const { isArranging } = useDashboardEditor();
   return (
-    <Box ref={ref} className={classes.Button} onClick={isArranging.toggle}>
-      {getMdiIcon("cog")}
-    </Box>
+    <Flex
+      ref={ref}
+      className={cn(
+        classes.Button,
+        isArranging.value && classes.ArrangingButton,
+        "items-center justify-center",
+      )}
+      onClick={isArranging.toggle}
+    >
+      {getMdiIcon(isArranging.value ? "close" : "pencilRuler", { size: "24px" })}
+    </Flex>
   );
 });
 

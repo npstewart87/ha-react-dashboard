@@ -4,17 +4,17 @@ import { defaultDashboardOptions } from "@home-assistant-react/types/src";
 import { Box, Flex } from "@home-assistant-react/ui/src";
 import React from "react";
 
-const heightClass = "h-16";
+const heightClass = "h-14";
 
 const classes = {
   Container: heightClass,
   Wrapper: "absolute z-sticky w-full",
   BackdropSelectLine: "",
   SelectLine:
-    "absolute bottom-0 left-0 w-full h-1 bg-primary pointer-events-none transition-all duration-300 w-0",
-  Background: `${heightClass} relative w-full bg-primary-background/60 backdrop-blur-xl border-b border-gray-400 border-opacity-20`,
-  Item: "py-2 mx-4 cursor-pointer font-bold opacity-50 text-primary select-none",
-  SelectedItem: "font-bold opacity-100",
+    "absolute bottom-0 left-0 w-full h-0.5 bg-primary pointer-events-none transition-all duration-300 w-0",
+  Background: `${heightClass} relative w-full bg-primary-background/70 backdrop-blur-xl border-b border-border`,
+  Item: "py-2 px-4 cursor-pointer text-sm font-medium text-muted-foreground hover:text-foreground select-none transition-colors duration-200",
+  SelectedItem: "font-semibold text-primary",
 };
 
 export const DashboardSections: React.FC = () => {
@@ -59,7 +59,7 @@ export const DashboardSections: React.FC = () => {
           ref={outlineSelectionBackDropRef}
         />
         <Flex className={classes.Background}>
-          <Flex className={"my-4 mx-3 w-full"}>
+          <Flex className={"items-center mx-3 w-full"}>
             <Box className={classes.SelectLine} ref={outlineSelectionRef} />
             {views.map((view) => (
               <Box

@@ -8,6 +8,7 @@ import { useDisclosure } from "@home-assistant-react/hooks/src";
 import { PanelCoverProvider } from "./usePanelCover";
 import { CoverOptionsModal } from "./CoverOptionsModal";
 import { CoverCard } from "./CoverCard";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 export const Cover: PanelFC<CoverOptions> = (props) => {
   const options = props.panel.options;
@@ -15,7 +16,7 @@ export const Cover: PanelFC<CoverOptions> = (props) => {
   const entity = useHassGetEntity<HassCoverEntityAttributes>(entityId);
   const moreModalDisclosure = useDisclosure();
 
-  if (!entity) return <></>;
+  if (!entity) return <PanelEmptyState icon="windowShutterOpen" message="Select a cover entity" />;
 
   return (
     <PanelCoverProvider

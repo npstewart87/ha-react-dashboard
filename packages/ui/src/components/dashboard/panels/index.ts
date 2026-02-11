@@ -3,3 +3,4 @@ export * from "./PanelsGroup";
 export * from "./Panel";
 export * from "./PanelContent";
 export * from "./PanelEditButton";
+export * from "./PanelEmptyState";

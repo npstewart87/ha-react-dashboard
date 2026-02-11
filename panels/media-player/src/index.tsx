@@ -13,6 +13,7 @@ import {
   mdiSkipNext,
   mdiSkipPrevious,
 } from "@mdi/js";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface MediaPlayerOptions {
   entity_id?: string;
@@ -30,6 +31,8 @@ export const MediaPlayerPanel: PanelFC<MediaPlayerOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
   const hass = useHass();
+
+  if (!entity) return <PanelEmptyState icon="musicNote" message="Select a media player entity" />;
 
   const isPlaying = entity?.state === "playing";
   const mediaTitle = entity?.attributes?.media_title as string | undefined;

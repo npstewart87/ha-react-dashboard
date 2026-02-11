@@ -11,7 +11,7 @@ export const FullPageLoading: React.FC = () => {
     <Flex className={classes.Loader}>
       <Spinner
         className={
-          "w-20 h-20 fill-primary-background/50 text-primary-background/10"
+          "w-16 h-16 fill-primary text-muted"
         }
       />
     </Flex>
