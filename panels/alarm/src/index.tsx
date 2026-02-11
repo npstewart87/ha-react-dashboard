@@ -8,6 +8,7 @@ import {
   PanelFC,
 } from "@home-assistant-react/types/src";
 import { mdiShieldHome, mdiShieldLock, mdiShieldOff } from "@mdi/js";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface AlarmOptions {
   entity_id?: string;
@@ -34,6 +35,8 @@ export const AlarmPanel: PanelFC<AlarmOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
   const hass = useHass();
+
+  if (!entity) return <PanelEmptyState icon="shieldLock" message="Select an alarm entity" />;
 
   const currentState = entity?.state || "unavailable";
   const friendlyName = entity?.attributes?.friendly_name || "";

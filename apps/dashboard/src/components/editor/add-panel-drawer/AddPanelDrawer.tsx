@@ -16,15 +16,15 @@ import { AddPanelSearchByEntities } from "./AddPanelSearchByEntities";
 import { AddPanelSearchByPanels } from "./AddPanelSearchByPanels";
 
 const classes = {
-  Overlay: "bg-transparent fixed inset-0 z-overlay",
+  Overlay: "bg-black/30 backdrop-blur-sm fixed inset-0 z-overlay",
   Wrapper:
-    "z-modal shadow-2xl fixed right-0 top-0 bottom-0 w-[40%] " +
-    "bg-primary-background/50 backdrop-blur-xl",
+    "z-modal shadow-2xl fixed right-0 top-0 bottom-0 w-[480px] max-w-[90vw] " +
+    "bg-primary-background/80 backdrop-blur-xl border-l border-border",
   OpenAnimation: "animate-in duration-300 slide-in-from-right-40 fade-in",
   CloseAnimation: "animate-out duration-300 slide-out-to-right-40 fade-out",
   WrapperOnDragging: "transition-all translate-x-[100%]",
   Tabs: "w-full h-full flex flex-col",
-  TabsList: "py-2 rounded-none border-b" + "bg-muted/60",
+  TabsList: "py-2 rounded-none border-b border-border bg-muted/60",
   TabContent: "h-full",
 };
 

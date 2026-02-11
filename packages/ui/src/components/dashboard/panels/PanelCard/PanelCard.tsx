@@ -34,7 +34,7 @@ export const PanelCard = React.forwardRef<
     usePanel();
 
   const ContentComponent = getPanelComponentOrFallback(panelComponent);
-  const hasPagination = group?.groupOptions?.showPagination || true;
+  const hasPagination = group?.groupOptions?.showPagination ?? true;
   const isGhost =
     _isGhost !== undefined
       ? _isGhost

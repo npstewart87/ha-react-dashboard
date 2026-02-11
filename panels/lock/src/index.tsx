@@ -8,6 +8,7 @@ import {
   PanelFC,
 } from "@home-assistant-react/types/src";
 import { mdiLock, mdiLockOpen } from "@mdi/js";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface LockOptions {
   entity_id?: string;
@@ -24,6 +25,8 @@ export const LockPanel: PanelFC<LockOptions> = (props) => {
   const entityId = props.panel.options?.entity_id || "";
   const entity = useHassGetEntity(entityId);
   const hass = useHass();
+
+  if (!entity) return <PanelEmptyState icon="lock" message="Select a lock entity" />;
 
   const isLocked = entity?.state === "locked";
   const friendlyName = entity?.attributes?.friendly_name || "";

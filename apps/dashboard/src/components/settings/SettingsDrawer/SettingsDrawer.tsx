@@ -12,7 +12,7 @@ const classes = {
   Overlay:
     "backdrop-blur-md bg-primary-background/70 dark:bg-black/70 fixed inset-0 animate-in fade-in",
   Drawer:
-    "z-drawer gap-2 shadow-xl bg-primary-background/70 dark:bg-primary-background/80 rounded-xl w-11/12 fixed bottom-0 top-0 left-0 animate-in slide-in-from-left-10 fade-in duration-500",
+    "z-drawer gap-2 shadow-xl bg-primary-background/80 dark:bg-primary-background/90 backdrop-blur-xl rounded-xl w-11/12 max-w-5xl fixed bottom-4 top-4 left-4 animate-in slide-in-from-left-10 fade-in duration-500 border border-border",
 };
 
 export const SettingsDrawer = React.forwardRef<HTMLDivElement>(

@@ -3,15 +3,14 @@ import { PanelFC } from "@home-assistant-react/types/src";
 import { Box, Flex } from "@home-assistant-react/ui/src";
 import { ClimateHvacModes } from "@home-assistant-react/ui/src/entity-controls/ClimateHvacModes/ClimateHvacModes";
 import { ClimateSlider } from "@home-assistant-react/ui/src/entity-controls/ClimateSlider";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 import { ClimateOptions } from "../defines/types";
 
 export const Climate: PanelFC<ClimateOptions> = (props) => {
   const options = props.panel.options;
   const entityId = options?.entity_id || "";
   const entity = useClimateEntity(entityId);
-  if (!entity) return;
-
-  console.log(entity);
+  if (!entity) return <PanelEmptyState icon="thermometer" message="Select a climate entity" />;
 
   return (
     <Box>

@@ -19,6 +19,7 @@ import { useToggleServices } from "@home-assistant-react/api/src/services/toggle
 import { getDomainFromEntityId } from "@home-assistant-react/helpers/src/home-assistant";
 import { getRandomObjectValue } from "@home-assistant-react/helpers/src/objects/getRandomObjectValue";
 import { useIndeterminate } from "@home-assistant-react/hooks/src/use-indeterminate/useIndeterminate";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 interface ToggleComponentProps {
   onClick?: () => void;
@@ -65,6 +66,8 @@ export const Toggle: PanelFC<ToggleOptions> = (props) => {
     : undefined;
   const { isIndeterminate, activate: activateIndeterminate } =
     useIndeterminate(isOn);
+
+  if (!entity) return <PanelEmptyState icon="toggleSwitch" message="Select an entity to toggle" />;
 
   return (
     <ToggleComponent

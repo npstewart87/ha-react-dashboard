@@ -1,24 +1,26 @@
 import React from "react";
 import { PanelEditButtonProps } from "./PanelEditButton.types";
 import { getMdiIcon } from "@home-assistant-react/icons/src";
-import { Box } from "../../../../primitives/common";
+import { Flex } from "../../../../primitives/common";
 
 export const PanelEditButton = React.forwardRef<
   HTMLDivElement,
   PanelEditButtonProps
 >((props, ref) => {
   return (
-    <Box
+    <Flex
       ref={ref}
       onClick={(event) => {
         event.stopPropagation();
         event.preventDefault();
         props.onClick?.(event);
       }}
-      className={"z-docked absolute right-0 top-0"}
+      className={
+        "z-docked absolute right-2 top-2 w-8 h-8 rounded-full bg-primary/90 text-primary-foreground items-center justify-center cursor-pointer hover:bg-primary hover:scale-110 transition-all duration-200 shadow-md"
+      }
     >
-      {getMdiIcon("pencilCircle", { size: "40px" })}
-    </Box>
+      {getMdiIcon("pencil", { size: "16px" })}
+    </Flex>
   );
 });
 

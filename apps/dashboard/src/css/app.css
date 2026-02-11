@@ -3,10 +3,32 @@ html body {
     background: linear-gradient(140deg, rgba(233, 242, 255, 1) 0%, rgba(208, 216, 235, 1) 100%);
 }
 html.dark body {
-    background: rgb(15,25,35); /* Darker base color */
-    background: linear-gradient(140deg, rgba(15,25,35,1) 0%, rgba(45,55,65,1) 100%); /* Darker gradient */
+    background: rgb(12, 14, 20);
+    background: linear-gradient(140deg, rgba(12, 14, 20, 1) 0%, rgba(22, 26, 35, 1) 100%);
 }
 html, body{
     height: 100%;
     overflow: hidden;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Selection styling */
+::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
 }

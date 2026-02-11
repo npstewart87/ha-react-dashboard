@@ -5,11 +5,14 @@ import { SensorOptions } from "../types";
 import { SensorChart } from "./SensorChart";
 import { SensorComponent } from "./SensorComponent";
 import { useSensorEntity } from "@home-assistant-react/hooks/src/entities/useSensorEntity";
+import { PanelEmptyState } from "@home-assistant-react/ui/src/components/dashboard/panels/PanelEmptyState";
 
 export const Sensor: PanelFC<SensorOptions> = (props) => {
   const options = props.panel.options;
   const entityId = options?.entity_id || "";
   const entity = useSensorEntity(entityId);
+
+  if (!entity) return <PanelEmptyState icon="chartLine" message="Select a sensor entity" />;
 
   const hasChart = options?.showChart ?? SensorPanel.defaultOptions!.showChart;
 
