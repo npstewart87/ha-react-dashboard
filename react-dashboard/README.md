@@ -13,7 +13,7 @@ A fully customizable dashboard for [Home Assistant](https://www.home-assistant.i
 
 1. In Home Assistant, go to **Settings → Add-ons → Add-on Store**
 2. Click the **⋮** menu (top right) → **Repositories**
-3. Add: `https://github.com/home-assistant-react/dashboard`
+3. Add: `https://github.com/npstewart87/ha-react-dashboard`
 4. Find **React Dashboard** in the store and click **Install**
 
 ## Configuration
@@ -22,5 +22,5 @@ No configuration is required. The add-on uses ingress to integrate directly into
 
 ## Support
 
-- [GitHub Issues](https://github.com/home-assistant-react/dashboard/issues)
+- [GitHub Issues](https://github.com/npstewart87/ha-react-dashboard/issues)
 - [Home Assistant Community](https://community.home-assistant.io/)
