@@ -1,5 +1,5 @@
 ---
-version: "0.0.1"
+version: "0.1.0"
 slug: react_dashboard
 name: React Dashboard
 description: Fully customizable Dashboard for your Home Assistant made in React

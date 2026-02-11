@@ -1,7 +1,7 @@
 {
   "name": "@home-assistant-react/server",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node -P tsconfig.json --files src/server.ts -d=./ -p 8099\"",
     "build": "ncc build src/server.ts -o dist -m -C"

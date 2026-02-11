@@ -1,6 +1,6 @@
 {
   "name": "ha-react-dashboard-addon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "sharp": "^0.33.3"
